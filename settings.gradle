@@ -1,0 +1,7 @@
+pluginManagement {
+    repositories {
+        maven { url = uri("http://artifactory.yandex.net/mobile") }
+    }
+}
+include ':app'
+rootProject.name = "BottomSheet"
