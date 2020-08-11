@@ -1,9 +1,9 @@
 package com.yandex.mobile.bottomsheet
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val behavior = BottomSheetBehavior.from(scroll)
-        behavior.state = BottomSheetBehavior.STATE_EXPANDED
-        content.setOnClickListener { behavior.state = BottomSheetBehavior.STATE_EXPANDED }
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit { add<MainFragment>(R.id.container) }
+        }
     }
 }
