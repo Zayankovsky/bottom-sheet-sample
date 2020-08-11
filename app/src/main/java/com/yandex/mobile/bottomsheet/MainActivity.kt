@@ -1,9 +1,10 @@
 package com.yandex.mobile.bottomsheet
 
 import android.os.Bundle
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.commit { add<MainFragment>(R.id.container) }
-        }
+        main.setOnClickListener { replace(R.layout.fragment_main) }
+        second.setOnClickListener { replace(R.layout.fragment_second) }
+        third.setOnClickListener { replace(R.layout.fragment_third) }
+    }
+
+    private fun replace(@LayoutRes contentLayoutId: Int) {
+        supportFragmentManager.commit { replace(R.id.container, MainFragment(contentLayoutId)) }
     }
 }
