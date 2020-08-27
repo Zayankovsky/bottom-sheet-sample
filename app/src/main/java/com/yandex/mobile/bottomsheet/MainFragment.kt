@@ -13,7 +13,7 @@ class MainFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val behavior = BottomSheetBehavior.from(view.findViewById<View>(R.id.scroll))
+        val behavior = BottomSheetBehavior.from(view.findViewById(R.id.scroll))
         behavior.isHideable = true
         behavior.skipCollapsed = true
         behavior.state = BottomSheetBehavior.STATE_EXPANDED

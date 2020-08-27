@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        main.setOnClickListener { replace(R.layout.fragment_main) }
+        first.setOnClickListener { replace(R.layout.fragment_first) }
         second.setOnClickListener { replace(R.layout.fragment_second) }
         third.setOnClickListener { replace(R.layout.fragment_third) }
     }
